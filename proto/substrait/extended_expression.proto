@@ -16,9 +16,8 @@ message ExpressionReference {
     Expression expression = 1;
     AggregateFunction measure = 2;
   }
-  NamedStruct base_schema = 2;
   // Field names in depth-first order
-  string name = 3;
+  string output_name = 2;
 }
 
 // Describe a set of operations to complete.
@@ -34,16 +33,17 @@ message ExtendedExpression {
   // a list of extensions this expression may depend on
   repeated substrait.extensions.SimpleExtensionDeclaration extensions = 2;
 
-  // one or more expression trees.
+  // one or more expression trees with same order in plan rel
   repeated ExpressionReference referred_expr = 3;
 
+  NamedStruct base_schema = 4;
   // additional extensions associated with this expression.
-  substrait.extensions.AdvancedExtension advanced_extensions = 4;
+  substrait.extensions.AdvancedExtension advanced_extensions = 5;
 
   // A list of com.google.Any entities that this plan may use. Can be used to
   // warn if some embedded message types are unknown. Note that this list may
   // include message types that are ignorable (optimizations) or that are
   // unused. In many cases, a consumer may be able to work with a plan even if
   // one or more message types defined here are unknown.
-  repeated string expected_type_urls = 5;
+  repeated string expected_type_urls = 6;
 }

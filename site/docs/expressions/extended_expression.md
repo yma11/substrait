@@ -10,7 +10,9 @@ Similar as `base_schema` defined in [ReadRel](https://github.com/substrait-io/su
 
 ## Referred expression
 
-It will has one or more referred expression in this message and the referred expressions can be [Expression](https://github.com/substrait-io/substrait/blob/7f272f13f22cd5f5842baea42bcf7961e6251881/proto/substrait/algebra.proto) or [AggregateFunction](https://github.com/substrait-io/substrait/blob/7f272f13f22cd5f5842baea42bcf7961e6251881/proto/substrait/algebra.proto#L1170). More types of expression can be added for more scenarios.
+It will has one or more referred expressions in this message and the referred expressions can be [Expression](https://github.com/substrait-io/substrait/blob/7f272f13f22cd5f5842baea42bcf7961e6251881/proto/substrait/algebra.proto) or [AggregateFunction](https://github.com/substrait-io/substrait/blob/7f272f13f22cd5f5842baea42bcf7961e6251881/proto/substrait/algebra.proto#L1170). More types of expression can be added for more scenarios.
+
+For multi expressions, user can translate them following same order as it occurs in original plan rel. But it does NOT require the consume side to handle it strictly in previous order. Only need to make sure columns in final output are organized in same order as defined in extended expression message.
 
 ## Function extensions
 
