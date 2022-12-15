@@ -17,7 +17,7 @@ message ExpressionReference {
     AggregateFunction measure = 2;
   }
   // Field names in depth-first order
-  string output_name = 2;
+  string output_name = 3;
 }
 
 // Describe a set of operations to complete.
@@ -25,7 +25,7 @@ message ExpressionReference {
 message ExtendedExpression {
   // Substrait version of the expression. Optional up to 0.17.0, required for later
   // versions.
-  Version version = 6;
+  Version version = 7;
 
   // a list of yaml specifications this expression may depend on
   repeated substrait.extensions.SimpleExtensionURI extension_uris = 1;
