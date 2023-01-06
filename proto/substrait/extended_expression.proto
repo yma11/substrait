@@ -17,7 +17,7 @@ message ExpressionReference {
     AggregateFunction measure = 2;
   }
   // Field names in depth-first order
-  string output_name = 3;
+  repeated string output_names = 3;
 }
 
 // Describe a set of operations to complete.
